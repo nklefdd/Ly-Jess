@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 
 from decouple import Csv, config
@@ -17,7 +18,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
+    "rest_framework_simplejwt.token_blacklist",
     "core",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +51,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = "accounts.User"
+
 WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
@@ -77,6 +82,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "core.exceptions.custom_exception_handler",
     "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(
+        minutes=config("ACCESS_TOKEN_LIFETIME_MINUTES", default=15, cast=int)
+    ),
+    "REFRESH_TOKEN_LIFETIME": timedelta(
+        days=config("REFRESH_TOKEN_LIFETIME_DAYS", default=7, cast=int)
+    ),
+    "UPDATE_LAST_LOGIN": True,
 }
 
 CORS_ALLOWED_ORIGINS = config(
@@ -96,6 +115,6 @@ LOGGING = {
     },
     "loggers": {
         name: {"handlers": ["console"], "level": config("LOG_LEVEL", default="INFO")}
-        for name in ["core"]
+        for name in ["core", "accounts"]
     },
 }
