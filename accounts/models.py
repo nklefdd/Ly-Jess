@@ -9,7 +9,7 @@ phone_validator = RegexValidator(
 
 
 class User(AbstractUser):
-    """Користувач магазину. Адміністратор — користувач з is_staff=True."""
+    """Користувач магазину. Адміністратор - користувач з is_staff=True."""
 
     email = models.EmailField("email", unique=True)
     phone = models.CharField("телефон", max_length=13, blank=True, validators=[phone_validator])

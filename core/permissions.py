@@ -9,7 +9,7 @@ class IsAdmin(BasePermission):
 
 
 class IsAdminOrReadOnly(IsAdmin):
-    """Читати можуть усі, змінювати — лише адміністратор."""
+    """Читати можуть усі, змінювати - лише адміністратор."""
 
     def has_permission(self, request, view):
         if request.method in SAFE_METHODS:
