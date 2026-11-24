@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вхід - Ly-Jess</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html">Ly-Jess</a>
+    <span class="tagline">Зоомагазин</span>
+  </header>
+  <main class="card">
+    <h1>Вхід</h1>
+    <form id="login-form">
+      <label>Ім’я користувача
+        <input name="username" type="text" required autocomplete="username">
+      </label>
+      <p class="field-error" data-error-for="username"></p>
+      <label>Пароль
+        <input name="password" type="password" required autocomplete="current-password">
+      </label>
+      <p class="field-error" data-error-for="password"></p>
+      <p class="form-error"></p>
+      <button type="submit">Увійти</button>
+    </form>
+    <p class="hint">Немає акаунта? <a href="register.html">Зареєструватися</a></p>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

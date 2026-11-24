@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реєстрація - Ly-Jess</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html">Ly-Jess</a>
+    <span class="tagline">Зоомагазин</span>
+  </header>
+  <main class="card">
+    <h1>Реєстрація</h1>
+    <form id="register-form">
+      <label>Ім’я користувача *
+        <input name="username" type="text" required>
+      </label>
+      <p class="field-error" data-error-for="username"></p>
+      <label>Email *
+        <input name="email" type="email" required>
+      </label>
+      <p class="field-error" data-error-for="email"></p>
+      <label>Ім’я
+        <input name="first_name" type="text" >
+      </label>
+      <p class="field-error" data-error-for="first_name"></p>
+      <label>Прізвище
+        <input name="last_name" type="text" >
+      </label>
+      <p class="field-error" data-error-for="last_name"></p>
+      <label>Телефон
+        <input name="phone" type="tel" placeholder="+380XXXXXXXXX">
+      </label>
+      <p class="field-error" data-error-for="phone"></p>
+      <label>Пароль *
+        <input name="password" type="password" required autocomplete="new-password">
+      </label>
+      <p class="field-error" data-error-for="password"></p>
+      <label>Повторіть пароль *
+        <input name="password_confirmation" type="password" required autocomplete="new-password">
+      </label>
+      <p class="field-error" data-error-for="password_confirmation"></p>
+      <p class="form-error"></p>
+      <button type="submit">Зареєструватися</button>
+    </form>
+    <p class="hint">Вже є акаунт? <a href="index.html">Увійти</a></p>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>
